@@ -35,7 +35,7 @@ const data = JSON.parse(fs.readFileSync(args[1], "utf-8"));
 const output = args[2];
 
 const zip = new JSZip(input);
-const doc = new Docxtemplater();
+const doc = new Docxtemplater(zip, {delimiters:{start:'{{',end:'}}'}});
 
 doc.loadZip(zip)
 	.setOptions({parser})
